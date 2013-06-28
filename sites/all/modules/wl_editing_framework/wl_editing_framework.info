@@ -3,6 +3,7 @@ core = 7.x
 package = Where’s Lucian Base
 version = 7.x-1.0-beta1
 project = "Where’s Lucian Framework"
+project status url = "https://whereslucian.com/release-history.xml"
 dependencies[] = better_formats
 dependencies[] = ckeditor
 dependencies[] = ctools
