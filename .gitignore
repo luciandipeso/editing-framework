@@ -17,6 +17,9 @@ robots.txt
 /MAINTAINERS.txt
 /UPGRADE.txt
 /README.txt
+sites/*/default.settings.php
+sites/example.sites.php
+sites/README.txt
 
 # Ignore everything but the "sites" folder ( for non core developer )
 web.config
