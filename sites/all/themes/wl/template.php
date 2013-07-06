@@ -66,7 +66,10 @@ function wl_preprocess_page(&$vars) {
     drupal_set_message(t('The Where’s Lucian base theme requires the Where’s Lucian Editing Framework module to be installed.'), 'warning');
   }
 
-  $node = $vars['node'];
+  $node = false;
+  if(!empty($vars['node'])) {
+    $node = $vars['node'];
+  }
   $vars = _wl_basic_preprocess_vars($node, $vars);
 }
 
