@@ -32,7 +32,7 @@ function wl_editing_framework_node_info() {
     'blurb' => array(
       'name' => t('Blurb'),
       'base' => 'node_content',
-      'description' => 'A small piece of static content you can place on multiple pages. For example, you might place basic contact information on several different pages.',
+      'description' => t('A small piece of static content you can place on multiple pages. For example, you might place basic contact information on several different pages.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -41,7 +41,7 @@ function wl_editing_framework_node_info() {
     'slideshow' => array(
       'name' => t('Slideshow'),
       'base' => 'node_content',
-      'description' => 'A slideshow of photos and/or YouTube videos.',
+      'description' => t('A slideshow of photos and/or YouTube videos.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
