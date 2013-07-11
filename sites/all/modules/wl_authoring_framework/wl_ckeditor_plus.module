@@ -16,6 +16,9 @@ function wl_ckeditor_plus_wysiwyg_editor_settings_alter(&$settings, $context) {
     return;
   }
 
+  // Allow content
+  $settings['allowedContent'] = true;
+
   // Set up bootstrap templates
   if(empty($settings['templates'])) {
     $templates = array();

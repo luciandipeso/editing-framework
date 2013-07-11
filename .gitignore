@@ -45,6 +45,7 @@ xmlrpc.php
 sites/all/*
 !sites/all/modules
 !sites/all/themes
+!sites/all/libraries
 
 sites/all/modules/*
 !sites/all/modules/wl_editing_framework
@@ -53,3 +54,6 @@ sites/all/modules/*
 
 sites/all/themes/*
 !sites/all/themes/wl
+
+sites/all/libraries/*
+!sites/all/libraries/ckeditor
