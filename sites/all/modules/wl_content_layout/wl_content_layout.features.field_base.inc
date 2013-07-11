@@ -1,69 +1,14 @@
 <?php
 /**
  * @file
- * wl_editing_framework.features.field_base.inc
+ * wl_content_layout.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function wl_editing_framework_field_default_field_bases() {
+function wl_content_layout_field_default_field_bases() {
   $field_bases = array();
-
-  // Exported field_base: 'body'
-  $field_bases['body'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(
-      0 => 'node',
-    ),
-    'field_name' => 'body',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'text_with_summary',
-  );
-
-  // Exported field_base: 'field_add_colon_to_title'
-  $field_bases['field_add_colon_to_title'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_add_colon_to_title',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => '',
-        1 => '',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
 
   // Exported field_base: 'field_layout'
   $field_bases['field_layout'] = array(
@@ -82,40 +27,10 @@ function wl_editing_framework_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(),
-      'allowed_values_function' => 'wl_editing_framework_field_layout_vals',
+      'allowed_values_function' => 'wl_content_layout_field_layout_vals',
     ),
     'translatable' => 0,
     'type' => 'list_text',
-  );
-
-  // Exported field_base: 'field_photos'
-  $field_bases['field_photos'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_photos',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'image',
-    'settings' => array(
-      'default_image' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'image',
   );
 
   // Exported field_base: 'field_related_content_1'
@@ -154,9 +69,7 @@ function wl_editing_framework_field_default_field_bases() {
           'type' => 'property',
         ),
         'target_bundles' => array(
-          'blurb' => 'blurb',
           'panel' => 'panel',
-          'slideshow' => 'slideshow',
         ),
       ),
       'target_type' => 'node',
@@ -201,9 +114,7 @@ function wl_editing_framework_field_default_field_bases() {
           'type' => 'property',
         ),
         'target_bundles' => array(
-          'blurb' => 'blurb',
           'panel' => 'panel',
-          'slideshow' => 'slideshow',
         ),
       ),
       'target_type' => 'node',
@@ -248,9 +159,7 @@ function wl_editing_framework_field_default_field_bases() {
           'type' => 'property',
         ),
         'target_bundles' => array(
-          'blurb' => 'blurb',
           'panel' => 'panel',
-          'slideshow' => 'slideshow',
         ),
       ),
       'target_type' => 'node',
@@ -295,9 +204,7 @@ function wl_editing_framework_field_default_field_bases() {
           'type' => 'property',
         ),
         'target_bundles' => array(
-          'blurb' => 'blurb',
           'panel' => 'panel',
-          'slideshow' => 'slideshow',
         ),
       ),
       'target_type' => 'node',
@@ -342,9 +249,7 @@ function wl_editing_framework_field_default_field_bases() {
           'type' => 'property',
         ),
         'target_bundles' => array(
-          'blurb' => 'blurb',
           'panel' => 'panel',
-          'slideshow' => 'slideshow',
         ),
       ),
       'target_type' => 'node',
@@ -353,60 +258,22 @@ function wl_editing_framework_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_show_titles'
-  $field_bases['field_show_titles'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_show_titles',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => '',
-        1 => '',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
+  if(module_exists('wl_authoring_framework')) {
+    $field_bases['field_related_content_1']['settings']['handler_settings']['target_bundles']['slideshow'] = 'slideshow';
+    $field_bases['field_related_content_1']['settings']['handler_settings']['target_bundles']['blurb'] = 'blurb';
 
-  // Exported field_base: 'field_subtitle'
-  $field_bases['field_subtitle'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_subtitle',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
+    $field_bases['field_related_content_2']['settings']['handler_settings']['target_bundles']['slideshow'] = 'slideshow';
+    $field_bases['field_related_content_2']['settings']['handler_settings']['target_bundles']['blurb'] = 'blurb';
+
+    $field_bases['field_related_content_3']['settings']['handler_settings']['target_bundles']['slideshow'] = 'slideshow';
+    $field_bases['field_related_content_3']['settings']['handler_settings']['target_bundles']['blurb'] = 'blurb';
+
+    $field_bases['field_related_content_4']['settings']['handler_settings']['target_bundles']['slideshow'] = 'slideshow';
+    $field_bases['field_related_content_4']['settings']['handler_settings']['target_bundles']['blurb'] = 'blurb';
+
+    $field_bases['field_related_content_5']['settings']['handler_settings']['target_bundles']['slideshow'] = 'slideshow';
+    $field_bases['field_related_content_5']['settings']['handler_settings']['target_bundles']['blurb'] = 'blurb';
+  }
 
   return $field_bases;
 }

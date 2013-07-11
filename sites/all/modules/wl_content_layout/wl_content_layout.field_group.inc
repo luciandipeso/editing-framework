@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wl_editing_framework.field_group.inc
+ * wl_content_layout.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function wl_editing_framework_field_group_info() {
+function wl_content_layout_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();

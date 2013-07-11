@@ -48,6 +48,8 @@ sites/all/*
 
 sites/all/modules/*
 !sites/all/modules/wl_editing_framework
+!sites/all/modules/wl_authoring_framework
+!sites/all/modules/wl_content_layout
 
 sites/all/themes/*
 !sites/all/themes/wl

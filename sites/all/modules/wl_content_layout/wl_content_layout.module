@@ -3,14 +3,14 @@
  * @file
  * Code for the feature.
  */
-include_once 'wl_editing_framework.features.inc';
+include_once 'wl_content_layout.features.inc';
 
 /**
  * Implementation of hook_menu()
  *
  * @return array An array of menu items
  */
-function wl_editing_framework_menu() {
+function wl_content_layout_menu() {
   // Safety: go away if CTools is not at an appropriate version.
   if(!defined('PANELS_REQUIRED_CTOOLS_API') || !module_invoke('ctools', 'api_version', PANELS_REQUIRED_CTOOLS_API)) {
     return array();
@@ -18,10 +18,10 @@ function wl_editing_framework_menu() {
   $items = array();
 
   $items['admin/structure/panels/settings/available-layouts'] = array(
-    'title' => 'Where’s Lucian Editing Framework',
+    'title' => 'Where’s Lucian Content Layout Framework',
     'description' => 'Configure which layouts are available to content creators.',
     'access arguments' => array('administer nodes'),
-    'page callback' => 'wl_editing_framework_settings',
+    'page callback' => 'wl_content_layout_settings',
     'type' => MENU_LOCAL_TASK,
   );
 
@@ -35,7 +35,7 @@ function wl_editing_framework_menu() {
  * @param string $plugin The plugin
  * @return string Relative path to a plugin directory for a particular module/plugin combination
  */
-function wl_editing_framework_ctools_plugin_directory($owner, $plugin) {
+function wl_content_layout_ctools_plugin_directory($owner, $plugin) {
   // Safety: go away if CTools is not at an appropriate version.
   if(!defined('PANELS_REQUIRED_CTOOLS_API') || !module_invoke('ctools', 'api_version', PANELS_REQUIRED_CTOOLS_API)) {
     return;
@@ -50,9 +50,9 @@ function wl_editing_framework_ctools_plugin_directory($owner, $plugin) {
  *
  * @return array An array representing the settings form
  */
-function wl_editing_framework_settings() {
+function wl_content_layout_settings() {
   ctools_include('common', 'panels');
-  return drupal_get_form('wl_editing_framework_settings_form', 'wl_editing_framework');
+  return drupal_get_form('wl_content_layout_settings_form', 'wl_content_layout');
 }
 
 /**
@@ -63,7 +63,7 @@ function wl_editing_framework_settings() {
  * @param string $module_name The module name
  * @return array The modified form array
  */
-function wl_editing_framework_settings_form($form, &$form_state, $module_name = 'wl_editing_framework') {
+function wl_content_layout_settings_form($form, &$form_state, $module_name = 'wl_content_layout') {
   ctools_include('plugins', 'panels');
   ctools_include('content');
 
@@ -85,22 +85,22 @@ function wl_editing_framework_settings_form($form, &$form_state, $module_name = 
 }
 
 /**
- * Validate hook for wl_editing_framework_settings_form()
+ * Validate hook for wl_content_layout_settings_form()
  *
  * @param array $form The form
  * @param array &$form_state The form state
  */
-function wl_editing_framework_settings_form_validate($form, &$form_state) {
+function wl_content_layout_settings_form_validate($form, &$form_state) {
   panels_common_allowed_layouts_form_validate($form, $form_state);
 }
 
 /**
- * Submit hook for wl_editing_framework_settings_form()
+ * Submit hook for wl_content_layout_settings_form()
  *
  * @param array $form The form
  * @param array &$form_state The form state
  */
-function wl_editing_framework_settings_form_submit($form, &$form_state) {
+function wl_content_layout_settings_form_submit($form, &$form_state) {
   panels_common_allowed_layouts_form_submit($form, $form_state);
   drupal_set_message(t('Your changes have been saved.'));
 }
@@ -110,7 +110,7 @@ function wl_editing_framework_settings_form_submit($form, &$form_state) {
  *
  * @return array Array of values
  */
-function wl_editing_framework_field_layout_vals() {
+function wl_content_layout_field_layout_vals() {
   if (!defined('PANELS_REQUIRED_CTOOLS_API') || !module_invoke('ctools', 'api_version', PANELS_REQUIRED_CTOOLS_API)) {
     return array();
   }
@@ -118,7 +118,7 @@ function wl_editing_framework_field_layout_vals() {
   ctools_include('plugins', 'panels');
   ctools_include('common', 'panels');
 
-  $layouts = panels_common_get_allowed_layouts('wl_editing_framework');
+  $layouts = panels_common_get_allowed_layouts('wl_content_layout');
   if(empty($layouts)) {
     return array(0 => 'Simple');
   }
@@ -128,7 +128,7 @@ function wl_editing_framework_field_layout_vals() {
     $options[$id] = panels_print_layout_icon($id, $layout, check_plain($layout['title']));
   }
 
-  uksort($options, 'wl_editing_framework_sort_layout_vals');
+  uksort($options, 'wl_content_layout_sort_layout_vals');
   return $options;
 }
 
@@ -139,7 +139,7 @@ function wl_editing_framework_field_layout_vals() {
  * @param string $b
  * @return int
  */
-function wl_editing_framework_sort_layout_vals($a, $b) {
+function wl_content_layout_sort_layout_vals($a, $b) {
   if(substr($a, 0, 10) === 'bootstrap_') {
     $a = substr($a, 10);
   }

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wl_editing_framework.features.filter.inc
+ * wl_authoring_framework.features.filter.inc
  */
 
 /**
  * Implements hook_filter_default_formats().
  */
-function wl_editing_framework_filter_default_formats() {
+function wl_authoring_framework_filter_default_formats() {
   $formats = array();
 
   // Exported format: Filtered HTML.
@@ -25,11 +25,6 @@ function wl_editing_framework_filter_default_formats() {
           'filter_url_length' => 72,
         ),
       ),
-      'media_filter' => array(
-        'weight' => -44,
-        'status' => 1,
-        'settings' => array(),
-      ),
       'filter_autop' => array(
         'weight' => -43,
         'status' => 1,
@@ -41,7 +36,7 @@ function wl_editing_framework_filter_default_formats() {
         'settings' => array(),
       ),
       'htmlpurifier_basic' => array(
-        'weight' => 0,
+        'weight' => -41,
         'status' => 1,
         'settings' => array(
           'htmlpurifier_help' => 1,
@@ -61,6 +56,11 @@ function wl_editing_framework_filter_default_formats() {
           ),
         ),
       ),
+      'media_filter' => array(
+        'weight' => -40,
+        'status' => 1,
+        'settings' => array(),
+      ),
     ),
   );
 
@@ -79,11 +79,6 @@ function wl_editing_framework_filter_default_formats() {
           'filter_url_length' => 72,
         ),
       ),
-      'media_filter' => array(
-        'weight' => -47,
-        'status' => 1,
-        'settings' => array(),
-      ),
       'filter_autop' => array(
         'weight' => -46,
         'status' => 1,
@@ -95,7 +90,7 @@ function wl_editing_framework_filter_default_formats() {
         'settings' => array(),
       ),
       'htmlpurifier_basic' => array(
-        'weight' => 0,
+        'weight' => -44,
         'status' => 1,
         'settings' => array(
           'htmlpurifier_help' => 1,
@@ -114,6 +109,11 @@ function wl_editing_framework_filter_default_formats() {
             'Null_URI.Munge' => 1,
           ),
         ),
+      ),
+      'media_filter' => array(
+        'weight' => -43,
+        'status' => 1,
+        'settings' => array(),
       ),
     ),
   );

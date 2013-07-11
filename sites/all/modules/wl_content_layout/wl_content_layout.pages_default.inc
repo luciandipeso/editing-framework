@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wl_editing_framework.pages_default.inc
+ * wl_content_layout.pages_default.inc
  */
 
 /**
  * Implements hook_default_page_manager_handlers().
  */
-function wl_editing_framework_default_page_manager_handlers() {
+function wl_content_layout_default_page_manager_handlers() {
   $export = array();
 
   // Simple page

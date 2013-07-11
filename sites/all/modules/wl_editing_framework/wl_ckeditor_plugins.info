@@ -1,8 +1,0 @@
-name = Where’s Lucian CKEditor Plugins
-core = 7.x
-package = Where’s Lucian Base
-version = 7.x-1.0-beta10
-project = wl_editing_framework
-dependencies[] = ckeditor
-files[] = wl_ckeditor_plugins.module
-project status url = http://whereslucian.com/projects

@@ -1,22 +1,16 @@
 <?php
 /**
  * @file
- * wl_editing_framework.features.inc
+ * wl_authoring_framework.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function wl_editing_framework_ctools_plugin_api() {
+function wl_authoring_framework_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   
-  if($module == "field_group" && $api == "field_group") {
-    return array("version" => "1");
-  }
-  else if($module == "linkit" && $api == "linkit_profiles") {
-    return array("version" => "1");
-  }
-  else if($module == "page_manager" && $api == "pages_default") {
+  if($module == "linkit" && $api == "linkit_profiles") {
     return array("version" => "1");
   }
   else if($module == "strongarm" && $api == "strongarm") {
@@ -27,7 +21,7 @@ function wl_editing_framework_ctools_plugin_api() {
 /**
  * Implements hook_node_info().
  */
-function wl_editing_framework_node_info() {
+function wl_authoring_framework_node_info() {
   $items = array(
     'blurb' => array(
       'name' => t('Blurb'),

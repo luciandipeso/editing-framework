@@ -1,0 +1,8 @@
+name = CKEditor Plus
+core = 7.x
+package = Where’s Lucian
+version = 7.x-1.1-beta1
+project = wl_authoring_framework
+dependencies[] = wl_authoring_framework
+files[] = wl_ckeditor_plus.module
+project status url = http://whereslucian.com/projects

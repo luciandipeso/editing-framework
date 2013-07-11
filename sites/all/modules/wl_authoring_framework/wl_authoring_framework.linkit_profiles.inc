@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wl_editing_framework.linkit_profiles.inc
+ * wl_authoring_framework.linkit_profiles.inc
  */
 
 /**
  * Implements hook_default_linkit_profiles().
  */
-function wl_editing_framework_default_linkit_profiles() {
+function wl_authoring_framework_default_linkit_profiles() {
   $export = array();
 
   $linkit_profile = new stdClass();
