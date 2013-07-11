@@ -1,7 +1,7 @@
 name = Where’s Lucian Authoring Framework
 core = 7.x
-package = Where’s Lucian
-version = 7.x-1.1-beta1
+package = WheresLucian.com
+version = 7.x-1.0-beta1
 project = wl_authoring_framework
 dependencies[] = better_formats
 dependencies[] = ctools
